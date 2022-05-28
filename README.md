@@ -1,11 +1,11 @@
 # GivTCP
-## TCP Modbus connection to MQTT/JSON for Givenergy Battery/PV Invertors
+## TCP Modbus connection to MQTT/JSON for Givenergy Battery/PV Inverters
 
-This project allows connection to the GivEnergy invertors via TCP Modbus. Access is through the native Wifi/Ethernet dongle and can be connected to through either the local LAN network or directly through the inbuilt SSID AP.
+This project allows connection to the GivEnergy inverters via TCP Modbus. Access is through the native Wifi/Ethernet dongle and can be connected to through either the local LAN network or directly through the inbuilt SSID AP.
 
 In basis of this project is a connection to a Modbus TCP server which runs on the wifi dongle, so all you need is somewhere to run the script on the same network. You will need the following to make it work:
-* GivEnergy Invertor properly commissioned and working
-* IP address of the invertor
+* GivEnergy Inverter properly commissioned and working
+* IP address of the inverter
 
 
 ## Docker
@@ -16,17 +16,17 @@ This will set up a self-running service which will publish data as required and 
 * Create a container with the relevant ENV variables below (mimicing the settings.py file)
 * Set the container to auto-restart to ensure reliability
 * Out of the box the default setup enables local MQTT broker and REST service (see below for details)
-* For Invertor autodiscovery to function your container must run on the "Host" network within docker (not Bridge). If it fails then you will need to manually add in INVERTOR_IP to the env variables
+* For Inverter autodiscovery to function your container must run on the "Host" network within docker (not Bridge). If it fails then you will need to manually add in INVERTER_IP to the env variables
 
 ### Installation
-The simplist installation method for GivTCP is to use the built-in self-run option which will automatically connect to your invertor and grab the data.
+The simplist installation method for GivTCP is to use the built-in self-run option which will automatically connect to your inverter and grab the data.
 
 1. Install docker on a suitable machine which is "always on" in your network.
 2. Open up your docker interface (I prefer portainer https://www.portainer.io/)
 3. Navigate to "Stacks" and click "Add Stack"
 4. Copy the contents of the docker-compose.yml file in this repo into the web editor pane
 5. Scoll down to the "Advanced container settings" and select the Env tab
-6. Edit any settings you wish. Specifically the INVERTOR_IP
+6. Edit any settings you wish. Specifically the INVERTER_IP
    1. See the below table for other optional variables which you can also use.
 7. Deploy the container
 
@@ -34,7 +34,7 @@ Alternatively you can run the container from the command line by downloading the
 
 Once this has been done the container should start-up and begin publishing data to its internal MQTT broker. You can test this by using an MQTT client, such as MQTT Explorer(http://mqtt-explorer.com/) and connect using the IP address of the machine you are running docker on.
 
-From here your invertor data is available through either MQTT or REST as described below. 
+From here your inverter data is available through either MQTT or REST as described below. 
 
 ### Docker Envirnoment Variables
 
