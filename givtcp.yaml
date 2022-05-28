@@ -9,7 +9,7 @@ sensor:
     json_attributes:                                                # define the entrys I want to retrieve
       - Energy
       - Power
-      - Invertor_Details
+      - Inverter_Details
       - Timeslots
       - Control
       - Battery_Details
@@ -36,11 +36,11 @@ template:
         device_class: energy
         state_class: measurement
         state: "{{ state_attr('sensor.givtcp','Energy')['Total']['AC_Charge_Energy_Total_kWh'] }}"
-      - name: "GivTCP Invertor Energy Total"
+      - name: "GivTCP Inverter Energy Total"
         unit_of_measurement: "kWh"
         device_class: energy
         state_class: measurement
-        state: "{{ state_attr('sensor.givtcp','Energy')['Total']['Invertor_Energy_Total_kWh'] }}"
+        state: "{{ state_attr('sensor.givtcp','Energy')['Total']['Inverter_Energy_Total_kWh'] }}"
       - name: "GivTCP PV Energy Total"
         unit_of_measurement: "kWh"
         device_class: energy
