@@ -23,12 +23,12 @@ then
     rm $FILE3    #delete file and re-create
 fi
 
-if [ -z "$INVERTOR_IP" ]; then
+if [ -z "$INVERTER_IP" ]; then
     echo 'IP not set in ENV'
     for i in 1 2 3
     do
         echo 'IP not set in ENV, scanning network attempt ' "$i"
-        outputString=`python3 /app/GivTCP/findInvertor.py`
+        outputString=`python3 /app/GivTCP/findInverter.py`
         if [ ! -z "$outputString" ]
         then
             break
@@ -37,16 +37,16 @@ if [ -z "$INVERTOR_IP" ]; then
 
     if [ -z "$outputString" ]
     then
-        echo 'No invertor found... Please add into ENV manually'
+        echo 'No inverter found... Please add into ENV manually'
         exit 1
     else
-        echo Invertor found at "$outputString"
+        echo Inverter found at "$outputString"
         printf "class GiV_Settings:\n" >> $FILE
-        printf "    invertorIP=\"$outputString\"\n" >> $FILE
+        printf "    inverterIP=\"$outputString\"\n" >> $FILE
     fi
 else
         printf "class GiV_Settings:\n" >> $FILE
-        printf "    invertorIP=\"$INVERTOR_IP\"\n" >> $FILE
+        printf "    inverterIP=\"$INVERTER_IP\"\n" >> $FILE
 fi
 printf "    numBatteries=$NUM_BATTERIES\n" >> $FILE
 printf "    Print_Raw_Registers=$PRINT_RAW\n" >> $FILE
@@ -70,7 +70,7 @@ printf "    first_run= True\n" >> $FILE
 
 if [ "$SELF_RUN" = "True" ]                         #Only run Schedule if requested
 then
-    echo Running Invertor read loop every "$SELF_RUN_LOOP_TIMER"s...
+    echo Running Inverter read loop every "$SELF_RUN_LOOP_TIMER"s...
     python3 /app/GivTCP/read.py self_run2 &       #Use to run periodically and push to MQTT
 fi
 
