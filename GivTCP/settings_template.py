@@ -1,7 +1,7 @@
 # version 2022.01.31
 class GiV_Settings:
-    invertorIP=""                   #Required - IP address of Invertor on local network
-    numBatteries=1                  #Required - The number of batteries connected this invertor
+    inverterIP=""                   #Required - IP address of Inverter on local network
+    numBatteries=1                  #Required - The number of batteries connected this inverter
     HA_Auto_D=True                  #Optional - Bool - Publishes Home assistant MQTT Auto Discovery messages to push data into HA automagically (requires MQTT to be enabled below)
 #Debug Settings
     Log_Level="Error"               #Optional - Enables logging level. Default is "Error", but can be "Info" or "Debug"
