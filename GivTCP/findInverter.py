@@ -7,7 +7,7 @@ import sys
 import os
 import math
 
-def find_Invertor(target_ip):
+def find_Inverter(target_ip):
     arp = ARP(pdst=target_ip)
     # ff:ff:ff:ff:ff:ff MAC address indicates broadcasting
     ether = Ether(dst="ff:ff:ff:ff:ff:ff")
