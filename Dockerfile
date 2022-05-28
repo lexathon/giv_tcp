@@ -17,7 +17,7 @@ RUN pip install -r requirements.txt
 COPY GivTCP/ ./GivTCP
 #COPY givenergy_modbus/ /usr/local/lib/python3.10/site-packages/givenergy_modbus
 
-ENV INVERTOR_IP=""
+ENV INVERTER_IP=""
 ENV NUM_BATTERIES="1"
 ENV MQTT_OUTPUT="True"
 ENV MQTT_ADDRESS="127.0.0.1"
