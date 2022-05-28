@@ -10,17 +10,17 @@ giv_api = Flask(__name__)
 
 #Proxy Read Functions
 
-#Read from Invertor put in cache and publish
+#Read from Inverter put in cache and publish
 @giv_api.route('/runAll', methods=['GET'])
 def getAll():
     return rd.runAll(True)
 
-#Publish last cached Invertor Data
+#Publish last cached Inverter Data
 @giv_api.route('/readData', methods=['GET'])
 def rdData():
     return rd.pubFromPickle()
 
-#Read from Invertor put in cache 
+#Read from Inverter put in cache 
 @giv_api.route('/getData', methods=['GET'])
 def gtData():
     return rd.getData()
